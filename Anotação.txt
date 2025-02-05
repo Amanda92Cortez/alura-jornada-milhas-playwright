@@ -1,0 +1,25 @@
+Executar Playwrigth >> npx playwright show-report 
+Executar Back e Front >> npm start
+Front >> http://localhost:4200/pagina-nao-encontrada
+
+Executar interface > npx playwright test --ui > npm run e2e--ui (por causa package.json no scripts)
+
+
+
+
+Você já sabe como rodar todos os testes do projeto:
+npx playwright test # ou usando nosso script "e2e":
+npm run e2e
+
+Para rodar os testes apenas em um tipo de navegador, use a flag --project:
+npx playwright test --project=chromium # ou usando nosso script "e2e": 
+npm run e2e -- --project=chromium # o hífen duplo "--" é necessário para adicionar flags ao script
+
+Para rodar os testes de um único arquivo, passe o nome dele:
+npm run e2e example.spec.ts -- --project=chromium
+
+Para rodar os arquivos de testes que contêm example ou PaginaInicial no nome (irá rodar ambos example.spec.ts e visitarPaginaInicial.spec.ts), passe essas palavras para o comando
+npm run e2e example PaginaInicial -- --project=chromium
+
+Para rodar testes a partir de seus títulos, use a flag -g
+npm run e2e -- -g "página inicial" --project=chromium
