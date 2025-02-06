@@ -1,4 +1,5 @@
 import { Page, Locator, expect } from "@playwright/test";
+import { formatarDataParaForm } from "../operacoes/datas";
 
 export default class PaginaPrincipal {
   private readonly page: Page;
@@ -83,7 +84,8 @@ export default class PaginaPrincipal {
   }
 
   async definirData(data: Date) {
-    const dataFormatada = data.toLocaleString('en-US', { dateStyle: 'short' }); // Formatação da data
+    // const dataFormatada = data.toLocaleString('en-US', { dateStyle: 'short' }); // Formatação da data
+    const dataFormatada = formatarDataParaForm(data);
     await this.campoDataIda.fill(dataFormatada);
   }
 

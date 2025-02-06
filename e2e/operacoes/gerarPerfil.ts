@@ -19,7 +19,7 @@ export type Perfil = {
 }
 export function gerarPerfil():Perfil{
     return {
-        nome: faker.person.fullName(),
+        nome: faker.person.middleName(),
         dataNascimento: faker.date.birthdate(),
         genero: faker.helpers.enumValue(Genero),
         cpf: faker.string.numeric(11),
