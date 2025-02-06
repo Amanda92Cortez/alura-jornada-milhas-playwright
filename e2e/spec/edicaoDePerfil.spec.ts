@@ -1,11 +1,10 @@
-import test from "@playwright/test";
+import { testeLogado } from "../setup/testeLogado";
 
-test.describe("Página de perfil", () => {
-    test("Editar perfil 1", () => {
-        // Fazer cadastro
+testeLogado.describe("Página de perfil", () => {
+  testeLogado("Editar perfil 1", async ({ paginaPrincipal }) => {
+    await paginaPrincipal.visitar();
+  });
 
-        // Fazer Login
-
-        // Editar perfil
-    })
-})
+  testeLogado("Editar perfil 2", () => {
+  });
+});
