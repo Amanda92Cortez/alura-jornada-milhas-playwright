@@ -18,15 +18,13 @@ export default class PaginaLogin {
   async visitar() {
     await this.page.goto('/');
     await this.botaoLogin.click();
-    await expect(this.page).toHaveURL('auth/login');
+    await expect(this.page).toHaveURL('/auth/login');
   }
 
   async fazerLogin(email: string, senha: string) {
     await this.inputEmail.fill(email);
     await this.inputSenha.fill(senha);
     await this.botaoAcessarConta.click();
-    // Espera pela URL mudar para /home
-    await expect(this.page).toHaveURL('http://localhost:57183/home', { timeout: 10000 });
   }
 
   async loginFeitoComSucesso() {
