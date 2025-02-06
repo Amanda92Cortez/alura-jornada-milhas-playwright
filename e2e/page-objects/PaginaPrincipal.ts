@@ -22,24 +22,14 @@ export default class PaginaPrincipal {
     this.botaoSomenteIda = page.getByTestId('botao-somente-ida');
 
     this.botaoAbrirModalPassageiros = page.getByTestId('abrir-modal-passageiros');
-    this.botaoIncrementarAdultos = page
-      .getByTestId('seletor-passageiro-adultos')
-      .getByRole('button', { name: 'adição' });
-    this.botaoIncrementarCriancas = page
-      .getByTestId('seletor-passageiro-criancas')
-      .getByRole('button', { name: 'adição' });
-    this.botaoIncrementarBebes = page
-      .getByTestId('seletor-passageiro-bebes')
-      .getByRole('button', { name: 'adição' });
+    this.botaoIncrementarAdultos = page.getByTestId('seletor-passageiro-adultos').getByRole('button', { name: 'adição' });
+    this.botaoIncrementarCriancas = page.getByTestId('seletor-passageiro-criancas').getByRole('button', { name: 'adição' });
+    this.botaoIncrementarBebes = page.getByTestId('seletor-passageiro-bebes').getByRole('button', { name: 'adição' });
 
     this.botaoFecharModalPassageiros = page.getByTestId('fechar-modal-passageiros');
 
-    this.campoDropdownOrigem = page
-      .getByTestId('campo-dropdown-origem')
-      .getByLabel('Origem');
-    this.campoDropdownDestino = page
-      .getByTestId('campo-dropdown-destino')
-      .getByLabel('Destino');
+    this.campoDropdownOrigem = page.getByTestId('campo-dropdown-origem').getByLabel('Origem');
+    this.campoDropdownDestino = page.getByTestId('campo-dropdown-destino').getByLabel('Destino');
 
     this.campoDataIda = page.getByTestId('campo-data-ida');
     this.botaoBuscarPassagens = page.getByTestId('botao-buscar-passagens');
