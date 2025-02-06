@@ -31,6 +31,7 @@
 O Jornada Milhas é uma StartUP fictícia. Atualmente, é um site onde podemos buscar por passagens de avisão e até filtrar seus resultados por preços, conexões e companhias. Também conta com as funcionalidades de cadastro, login e edição de perfil.
 
 ` Curso: ` Angular: escreva testes end-to-end com Playwright
+
 ` Curso: ` Angular: teste e otimize o fluxo de autenticação com Playwright
 
 ---
