@@ -1,6 +1,6 @@
 import { Locator, Page, expect } from "@playwright/test";
 import { formatarDataParaForm } from "../operacoes/datas";
-import { Genero } from "../operacoes/gerarPerfil";
+import { Genero, Perfil } from "../operacoes/gerarPerfil";
 
 export default class PaginaCadastro {
   private readonly page: Page;
@@ -26,10 +26,19 @@ export default class PaginaCadastro {
 
     this.inputNome = page.getByTestId('form-base-input-nome');
     this.inputDataNascimento = page.getByTestId('form-base-input-data-nascimento');
-    
-    const radioGeneroFeminino = page.getByTestId('form-base-radio-genero-feminino').getByLabel('Feminino');
-    const radioGeneroMasculino = page.getByTestId('form-base-radio-genero-masculino').getByLabel('Masculino');
-    const radioGeneroNaoInformado = page.getByTestId('form-base-radio-genero-nao-informar').getByLabel('Prefiro não informar');
+
+    const radioGeneroFeminino = page
+      .getByTestId('form-base-radio-genero-feminino')
+      .getByLabel('Feminino');
+
+    const radioGeneroMasculino = page
+      .getByTestId('form-base-radio-genero-masculino')
+      .getByLabel('Masculino');
+
+    const radioGeneroNaoInformado = page
+      .getByTestId('form-base-radio-genero-nao-informar')
+      .getByLabel('Prefiro não informar');
+
     this.radiosGenero = {
       [Genero.FEMININO]: radioGeneroFeminino,
       [Genero.MASCULINO]: radioGeneroMasculino,
@@ -40,7 +49,9 @@ export default class PaginaCadastro {
     this.inputCidade = page.getByTestId('form-base-input-cidade');
     this.inputTelefone = page.getByTestId('form-base-input-telefone');
 
-    this.inputEstado = page.getByTestId('form-base-container-estado').getByLabel('Estado');
+    this.inputEstado = page
+      .getByTestId('form-base-container-estado')
+      .getByLabel('Estado');
 
     this.inputEmail = page.getByTestId('form-base-input-email');
     this.inputSenha = page.getByTestId('form-base-input-senha');
@@ -49,7 +60,9 @@ export default class PaginaCadastro {
 
     this.botaoSubmeterForm = page.getByTestId('form-base-botao-submeter-form');
     
-    this.checkboxTermos = page.getByTestId('form-base-checkbox-termos').getByLabel('Li e aceito os termos e condições deste cadastro');
+    this.checkboxTermos = page
+      .getByTestId('form-base-checkbox-termos')
+      .getByLabel('Li e aceito os termos e condições deste cadastro');
   }
 
   async visitar() {
@@ -111,6 +124,23 @@ export default class PaginaCadastro {
 
   async submeterForm() {
     await this.botaoSubmeterForm.click();
+  }
+
+  async cadastrarUsuario(usuario: Perfil) {
+    await this.definirNome(usuario.nome);
+    await this.definirDataNascimento(usuario.dataNascimento);
+    await this.definirGenero(usuario.genero);
+    await this.definirCPF(usuario.cpf);
+    await this.definirTelefone(usuario.telefone);
+    await this.definirCidade(usuario.cidade);
+    await this.definirEstado(usuario.estado);
+
+    await this.definirEmail(usuario.email);
+    await this.confirmarEmail(usuario.email);
+    await this.definirSenha(usuario.senha);
+    await this.confirmarSenha(usuario.senha);
+    await this.confirmarTermos();
+    await this.submeterForm();
   }
 
   async cadastroFeitoComSucesso() {

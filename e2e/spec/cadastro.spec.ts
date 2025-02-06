@@ -1,26 +1,25 @@
-import { gerarPerfil } from "../operacoes/gerarPerfil";
+import { Perfil, gerarPerfil } from "../operacoes/gerarPerfil";
 import { test } from "../setup/fixtures";
 
 test.describe('Página de cadastro', () => {
-    test("Deve conseguir fazer cadastro", async ({ paginaCadastro }) => {
-        const novoUsuario = gerarPerfil();
-    
-        await paginaCadastro.visitar();
-        await paginaCadastro.definirNome(novoUsuario.nome);
-        await paginaCadastro.definirDataNascimento(novoUsuario.dataNascimento);
-        await paginaCadastro.definirCPF(novoUsuario.cpf);
-        await paginaCadastro.definirGenero(novoUsuario.genero);
-        await paginaCadastro.definirTelefone(novoUsuario.telefone);
-        await paginaCadastro.definirCidade(novoUsuario.cidade);
-        await paginaCadastro.definirEstado(novoUsuario.estado);
-        await paginaCadastro.definirEmail(novoUsuario.email);
-        await paginaCadastro.confirmarEmail(novoUsuario.email);
-        await paginaCadastro.definirSenha(novoUsuario.senha);
-        await paginaCadastro.confirmarSenha(novoUsuario.senha);
-        await paginaCadastro.confirmarTermos();
-        await paginaCadastro.submeterForm();
-        await paginaCadastro.cadastroFeitoComSucesso();
+  let novoUsuario: Perfil;
+  
+  test.beforeEach(async ({ paginaCadastro }) => {
+    await paginaCadastro.visitar();
+    novoUsuario = gerarPerfil();
+  });
 
-        console.log(novoUsuario);
-      });
-})
+  test("Deve conseguir fazer cadastro", async ({ paginaCadastro }) => {
+    await paginaCadastro.cadastrarUsuario(novoUsuario);
+    await paginaCadastro.cadastroFeitoComSucesso();
+  });
+
+  test("Não deve conseguir fazer cadastro com email duplicado", async ({ paginaCadastro }) => {
+    await paginaCadastro.cadastrarUsuario(novoUsuario);
+    await paginaCadastro.cadastroFeitoComSucesso();
+
+    await paginaCadastro.visitar();
+    await paginaCadastro.cadastrarUsuario(novoUsuario);
+    await paginaCadastro.estaMostrandoMensagemDeErro('E-mail já utilizado.');
+  });
+});
