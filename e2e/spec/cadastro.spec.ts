@@ -6,6 +6,7 @@ test.describe('Página de cadastro', () => {
   
   test.beforeEach(async ({ paginaCadastro }) => {
     await paginaCadastro.visitar();
+
     novoUsuario = gerarPerfil();
   });
 

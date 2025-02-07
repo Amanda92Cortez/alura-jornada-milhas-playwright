@@ -1,4 +1,4 @@
-  import { test } from "../setup/fixtures";
+import { test } from "../setup/fixtures";
 
 test.describe('Buscar Passagens', () => {
   test('Deve buscar passagem de somente ida', async ({ paginaPrincipal }) => {
