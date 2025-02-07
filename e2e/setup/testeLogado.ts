@@ -21,14 +21,12 @@ export const testeLogado = test.extend<object, { arquivoInfoLogin: string }>({
     const paginaLogin = new PaginaLogin(page);
     const novoUsuario = gerarPerfil();
 
-    await page.goto('http://localhost:53496/auth/cadastro');
+    await page.goto('http://localhost:4200/auth/cadastro');
     await paginaCadastro.cadastrarUsuario(novoUsuario);
-    await expect(page).toHaveURL('http://localhost:53496/auth/login');
-    // Mudar a porta toda vez abrir npm start do front
+    await expect(page).toHaveURL('http://localhost:4200/auth/login');
 
     await paginaLogin.fazerLogin(novoUsuario.email, novoUsuario.senha);
-    await expect(page).toHaveURL('http://localhost:53496/home');
-    // Mudar a porta toda vez abrir npm start do front
+    await expect(page).toHaveURL('http://localhost:4200/home');
 
     await page.context().storageState({ path: caminhoArquivo });
 
