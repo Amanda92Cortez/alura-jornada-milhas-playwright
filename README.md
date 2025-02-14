@@ -3,9 +3,7 @@
     Alura - Jornada milhas playwright
     <br />
     <br />
-    <a href="https://docusaurus.io">
-      <img src="/img/image_06.gif" alt="Docusaurus">
-    </a>
+    <img src="/img/banner.avif" alt="Banner">
     <br />
   </h1>
 
@@ -45,7 +43,9 @@ O Jornada Milhas é uma StartUP fictícia. Atualmente, é um site onde podemos b
   
 </div>
 
-
+---
+# 🎯 Desafio <a name="id04"></a>
+<img src="/img/jornadaMilha_play.gif" alt="Gif">
 
 ---
 
