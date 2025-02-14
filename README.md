@@ -21,6 +21,7 @@
 
 - [Descrição do Projeto](#id01)
 - [Ferramentas](#id02)
+- [Desafio](#id04)
 - [Instalação](#id03)
 
 ---
@@ -53,40 +54,11 @@ O Jornada Milhas é uma StartUP fictícia. Atualmente, é um site onde podemos b
 #### Baixar Projeto e instalações
 ```bash
     # Clonar o repositório
-    $ git clone XXXXXXXXX
+    $ git clone https://github.com/Amanda92Cortez/alura-jornada-milhas-playwright.git
 
-    # Entrar no diretório > API
-    $ cd back
-    $ npm install
-
-    # Entrar no diretório > API
-    $ cd front
-    $ npm install
-
-    # Pasta raiz
-    $ npm install
-
-    # Iniciar o projeto brack
-    $ npm start
-
-    # Iniciar o projeto front
-    $ npm start
-```
-
-#### ❎ Rodando o Back-End (servidor)
-
-```bash
-# Vá para a pasta back
-$ cd start
-```
-
-#### ❎ Rodando o Front-End (web)
-
-```bash
-# Vá para a pasta front
-$ cd start
-
-# O servidor inciará na porta:4200 - acesse <http://localhost:4200/home>
+    # Entrar no diretório da pasta
+    $ cd pasta
+    $ npm init playwright@latest
 ```
 
 #### ❎ Rodando automação (Playwritght)
@@ -95,6 +67,23 @@ $ cd start
 # Playwritght
 # Executar Playwrigth
 npx playwright show-report 
+
+# Você já sabe como rodar todos os testes do projeto:
+# npx playwright test # ou usando nosso script "e2e":
+npm run e2e
+
+# Para rodar os testes apenas em um tipo de navegador, use a flag --project:
+# npx playwright test --project=chromium # ou usando nosso script "e2e": 
+npm run e2e -- --project=chromium # o hífen duplo "--" é necessário para adicionar flags ao script
+
+# Para rodar os testes de um único arquivo, passe o nome dele:
+npm run e2e example.spec.ts -- --project=chromium
+
+# Para rodar os arquivos de testes que contêm example ou PaginaInicial no nome (irá rodar ambos example.spec.ts e visitarPaginaInicial.spec.ts), passe essas palavras para o comando
+npm run e2e example PaginaInicial -- --project=chromium
+
+# Para rodar testes a partir de seus títulos, use a flag -g
+npm run e2e -- -g "página inicial" --project=chromium
 
 ```
 
