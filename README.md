@@ -29,9 +29,12 @@
 # :pushpin: Descrição do Projeto <a name="id01"></a>
 O Jornada Milhas é uma StartUP fictícia. Atualmente, é um site onde podemos buscar por passagens de avisão e até filtrar seus resultados por preços, conexões e companhias. Também conta com as funcionalidades de cadastro, login e edição de perfil.
 
-` Curso: ` Angular: escreva testes end-to-end com Playwright
+---
 
-` Curso: ` Angular: teste e otimize o fluxo de autenticação com Playwright
+
+
+` Curso: ` [Alura - Angular: teste e otimize o fluxo de autenticação com Playwright]("https://www.alura.com.br/curso-online-angular-teste-otimize-fluxo-autenticacao-playwright")
+` Curso: ` [Alura - Angular: escreva testes end-to-end com Playwright]("https://www.alura.com.br/curso-online-angular-escreva-testes-end-to-end-playwright")
 
 ---
 
