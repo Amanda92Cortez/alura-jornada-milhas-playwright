@@ -31,10 +31,9 @@ O Jornada Milhas é uma StartUP fictícia. Atualmente, é um site onde podemos b
 
 ---
 
+` Curso: ` Alura - Angular: teste e otimize o fluxo de autenticação com Playwright
 
-
-` Curso: ` [Alura - Angular: teste e otimize o fluxo de autenticação com Playwright]("https://www.alura.com.br/curso-online-angular-teste-otimize-fluxo-autenticacao-playwright")
-` Curso: ` [Alura - Angular: escreva testes end-to-end com Playwright]("https://www.alura.com.br/curso-online-angular-escreva-testes-end-to-end-playwright")
+` Curso: ` Alura - Angular: escreva testes end-to-end com Playwright
 
 ---
 
